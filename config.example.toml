@@ -1,0 +1,49 @@
+# Exemplu de configurare (specificația, secțiunea 10).
+# Copiați-l în ~/.config/dashboard/config.toml și adaptați-l.
+
+[general]
+start_page = "agenda"         # agenda | sarcini | timp | notite
+refresh_seconds = 60
+agenda_days = 7
+
+[adapters]
+# Valori: khal, taskwarrior, timewarrior, harsh (adaptoarele reale, pe etape)
+# sau "fake" (în memorie, pentru a încerca interfața; datele se pierd la ieșire).
+calendar = "khal"
+tasks = "taskwarrior"
+time = "timewarrior"
+habits = "harsh"
+
+[calendar]
+tracked = ["plan"]            # calendare cu time tracking
+blocks = "plan"               # calendarul blocurilor de lucru
+writable = ["personal", "plan"]
+
+[calendar.projects]           # titlu eveniment → proiect
+"Curs Inteligență Artificială" = "ia"
+"Laborator Baze de Date" = "bd"
+
+[time]
+include_subprojects = false
+mobile_file = "~/notite/timp-mobil.txt"
+
+[notes]
+dir = "~/notite"
+templates = "~/notite/.sabloane"
+editor = "hx"
+
+[notify]
+minutes_before = 10
+
+[colors]
+default = "blue"              # pentru proiectele fără culoare proprie
+
+[colors.projects]             # opțional; pot fi și proiecte care nu există încă
+ia = "green"
+proiect-y = "#e5a50a"
+rust = "208"
+
+[[habits.auto]]               # opțional, vezi 5.8
+habit = "Citit"
+project = "citit"
+min = "30m"
