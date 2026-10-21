@@ -1,0 +1,7 @@
+[Unit]
+Description=Unelte: backup automat cu Git
+
+[Service]
+Type=oneshot
+ExecStart=@PYTHON@ -m unelte backup
+WorkingDirectory=@REPO@

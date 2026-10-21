@@ -1,0 +1,7 @@
+[Unit]
+Description=Unelte: organizarea automată a descărcărilor
+
+[Service]
+Type=oneshot
+ExecStart=@PYTHON@ -m unelte organizeaza --automat
+WorkingDirectory=@REPO@

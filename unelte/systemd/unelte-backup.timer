@@ -1,0 +1,10 @@
+[Unit]
+Description=Unelte: backup automat cu Git (periodic)
+
+[Timer]
+OnCalendar=@BACKUP_CALENDAR@
+Persistent=true
+RandomizedDelaySec=60
+
+[Install]
+WantedBy=timers.target

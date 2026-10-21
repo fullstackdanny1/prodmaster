@@ -1,0 +1,9 @@
+[Unit]
+Description=Unelte: organizarea automată a descărcărilor (la fiecare oră)
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+
+[Install]
+WantedBy=timers.target

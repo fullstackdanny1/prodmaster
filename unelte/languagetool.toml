@@ -1,0 +1,7 @@
+# Versiunea LanguageTool instalată de install.sh în ~/.local/share/unelte/languagetool/.
+# Actualizare (pas manual): schimbi versiunea și suma de control, apoi rulezi ./install.sh din nou.
+versiune = "6.8"
+url = "https://languagetool.org/download/LanguageTool-6.8.zip"
+# SHA-256 al arhivei. Dacă e gol, install.sh afișează suma fișierului descărcat și cere confirmare
+# înainte de a-l folosi; copiaz-o apoi aici, ca instalările următoare să fie verificate automat.
+sha256 = ""

@@ -1,0 +1,82 @@
+# Configurația Unelte. install.sh o copiază în ~/.config/unelte/config.toml (fără să suprascrie).
+# Un fișier gol funcționează: fiecare opțiune are o valoare implicită.
+
+[general]
+limba = "ro"
+notificari = true             # notify-send la final pentru comenzile lungi și timer-e
+distro = "auto"               # auto | debian | fedora | arch
+
+[module]                      # modulele amânate; false = fără lansator și fără timer
+cv = false
+buget = false
+
+[ai]
+# Furnizorii, modelele și ce model folosește fiecare sarcină se configurează în fișierul
+# comun ~/.config/ai/ai.toml. Aici nu e nevoie de nimic.
+
+# ---------------------------------------------------------------- backup
+[backup]
+interval = "1h"               # folosit de timer: 30m, 1h, 2h, 1d
+fisier_max_mb = 50            # fișierele mai mari sunt refuzate (GitHub respinge peste 100 MB)
+
+# [[backup.repo]]
+# nume = "notite"
+# cale = "~/Notite"
+
+# [[backup.repo]]
+# nume = "bibliografie"
+# cale = "~/Documente/Bibliografie"   # unde Better BibTeX exportă automat fișierul .bib
+
+[backup.zotero]
+activ = false
+date = "~/Zotero"             # folderul de date Zotero
+destinatie = "~/Backup/zotero"
+copii_pastrate = 10
+
+# ---------------------------------------------------------------- organizeaza
+[organizeaza]
+surse = ["~/Descărcări", "~/Downloads"]   # cele care nu există sunt ignorate
+asteapta_minute = 2           # fișierele modificate mai recent sunt sărite (descărcări în curs)
+ignora = ["*.part", "*.crdownload", "*.tmp"]
+
+# [[organizeaza.regula]]
+# nume = "Cursuri management"
+# extensii = ["pdf", "pptx", "docx"]
+# cuvinte = ["management", "antreprenor"]   # în numele fișierului (fără diacritice, fără majuscule)
+# cuvinte_continut = []                      # în textul primei pagini a PDF-ului (cere pdftotext)
+# destinatie = "~/Facultate/Management/{an}"
+# automat = false               # true = rulată și de timer
+
+# [[organizeaza.regula]]
+# nume = "Imagini"
+# extensii = ["png", "jpg", "jpeg", "webp"]
+# destinatie = "~/Imagini/{an}-{luna}"
+# automat = true
+
+# ---------------------------------------------------------------- ocr-ecran
+[ocr]
+limbi = "ron+eng"
+captura = "auto"              # auto | grim | gnome | spectacle | maim
+
+# ---------------------------------------------------------------- documente
+[documente]
+profil_implicit = "facultate"
+bibliografie = "~/Documente/Bibliografie/biblioteca.bib"   # exportul automat Better BibTeX
+
+# ---------------------------------------------------------------- corecteaza
+[corecteaza]
+server = "http://127.0.0.1:8081"
+limba = "ro-RO"
+reguli_ignorate = []
+
+# ---------------------------------------------------------------- rezumat
+[rezumat]
+ora = "07:30"
+iesire = "~/Notite/Rezumate"         # folderul de notițe Studiu sau oricare altul
+interese = "audit și securitate crypto, piața muncii pentru juniori IT, educație financiară"
+max_pe_subiect = 5
+text_complet = false                 # true = descarcă și articolul, nu doar descrierea din feed
+
+# [[rezumat.subiect]]
+# nume = "Securitate crypto"
+# surse = ["https://exemplu.org/feed.xml"]

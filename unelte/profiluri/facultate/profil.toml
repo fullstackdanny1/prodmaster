@@ -1,0 +1,33 @@
+# Profilul „facultate”: regulile lucrărilor de la facultate.
+# Valorile sunt un exemplu; completează-le după ghidul facultății tale, apoi regenerează
+# reference.docx cu: .venv/bin/python profiluri/genereaza_reference.py profiluri/facultate
+nume = "Lucrări facultate"
+
+[pagina]
+format = "A4"
+margini_cm = { sus = 2.5, jos = 2.5, stanga = 3.0, dreapta = 2.0 }
+numerotare = true                  # număr de pagină în subsol
+
+[text]
+font = "Times New Roman"
+marime_pt = 12
+spatiere_rand = 1.5
+aliniere = "justify"               # justify | left | center | right
+indent_prima_linie_cm = 1.25
+
+[titluri]
+font = "Times New Roman"
+marimi_pt = [16, 14, 12]           # Heading 1, 2, 3
+numerotate = true
+
+[figuri]
+legenda_obligatorie = true
+
+[citari]
+stil = "stil.csl"                  # APA, ediția a 7-a (din citation-style-language/styles, CC BY-SA 3.0)
+bibliografie_obligatorie = true
+titlu_bibliografie = "Bibliografie"
+
+[pagina_titlu]
+activa = true
+campuri = ["universitate", "facultate", "titlu", "autor", "coordonator", "oras", "an"]

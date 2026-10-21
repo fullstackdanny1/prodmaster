@@ -1,0 +1,11 @@
+[Unit]
+Description=Unelte: server LanguageTool local (127.0.0.1:8081)
+
+[Service]
+# Fără --public serverul ascultă doar pe localhost; --allow-origin permite extensia din browser.
+ExecStart=@JAVA@ -Xmx1g -cp @LT_DIR@/languagetool-server.jar org.languagetool.server.HTTPServer --port 8081 --allow-origin "*"
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

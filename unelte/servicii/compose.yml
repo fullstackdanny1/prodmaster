@@ -1,0 +1,37 @@
+# Serviciile locale ale suitei: Stirling-PDF, Excalidraw și ChartDB.
+# Porturile sunt legate doar la 127.0.0.1. Imaginile au versiuni fixate; actualizarea e manuală:
+#   schimbi tag-ul aici, apoi: docker compose pull && docker compose up -d   (sau podman compose)
+# Pornire: ./install.sh --servicii
+
+name: unelte
+
+services:
+  stirling-pdf:
+    image: docker.io/stirlingtools/stirling-pdf:3.1.0
+    container_name: unelte-stirling-pdf
+    ports:
+      - "127.0.0.1:8090:8080"
+    environment:
+      DOCKER_ENABLE_SECURITY: "false"     # un singur utilizator, doar local
+      SYSTEM_DEFAULTLOCALE: ro-RO
+    volumes:
+      - ${HOME}/.local/share/unelte/stirling/configs:/configs
+      - ${HOME}/.local/share/unelte/stirling/logs:/logs
+    restart: unless-stopped
+
+  excalidraw:
+    # Excalidraw nu publică tag-uri de versiune: imaginea e fixată prin digest (publicată 2026-05-06).
+    image: docker.io/excalidraw/excalidraw@sha256:f7ee194addd607bf831d2af0f0a34463dd4225e426cf35199ef0b12a803398e9
+    container_name: unelte-excalidraw
+    ports:
+      - "127.0.0.1:8091:80"
+    restart: unless-stopped
+
+  chartdb:
+    image: ghcr.io/chartdb/chartdb:1.19.0
+    container_name: unelte-chartdb
+    ports:
+      - "127.0.0.1:8092:80"
+    environment:
+      DISABLE_ANALYTICS: "true"           # funcțiile AI rămân dezactivate: nu se configurează nicio cheie
+    restart: unless-stopped

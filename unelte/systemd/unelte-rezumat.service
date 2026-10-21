@@ -1,0 +1,8 @@
+[Unit]
+Description=Unelte: rezumatul zilnic din RSS
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=@PYTHON@ -m unelte rezumat
+WorkingDirectory=@REPO@

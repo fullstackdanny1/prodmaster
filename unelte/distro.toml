@@ -1,0 +1,99 @@
+# Programe de sistem → pachete pe distribuții. Datele stau aici, nu în cod.
+# Verificat pe Ubuntu 24.04 LTS, Fedora 42 și Arch (octombrie 2026).
+# „comenzi” = comenzile Unelte care au nevoie de program (pentru mesajele instalatorului).
+
+[manageri]
+debian = "sudo apt install"
+fedora = "sudo dnf install"
+arch = "sudo pacman -S --needed"
+
+[programe.pandoc]
+comenzi = ["converteste"]
+debian = ["pandoc"]
+fedora = ["pandoc"]
+arch = ["pandoc"]
+
+[programe.soffice]
+comenzi = ["converteste --pdf"]
+# libreoffice-math e necesar pentru formulele din PDF (fără el ecuațiile dispar la export)
+debian = ["libreoffice-writer", "libreoffice-math"]
+fedora = ["libreoffice-writer", "libreoffice-math"]
+arch = ["libreoffice-fresh"]
+
+[programe.tesseract]
+comenzi = ["ocr-ecran"]
+debian = ["tesseract-ocr", "tesseract-ocr-ron", "tesseract-ocr-eng"]
+fedora = ["tesseract", "tesseract-langpack-ron", "tesseract-langpack-eng"]
+arch = ["tesseract", "tesseract-data-ron", "tesseract-data-eng"]
+
+[programe.grim]
+comenzi = ["ocr-ecran (Wayland wlroots)"]
+debian = ["grim"]
+fedora = ["grim"]
+arch = ["grim"]
+
+[programe.slurp]
+comenzi = ["ocr-ecran (Wayland wlroots)"]
+debian = ["slurp"]
+fedora = ["slurp"]
+arch = ["slurp"]
+
+[programe.wl-copy]
+comenzi = ["ocr-ecran (Wayland)"]
+debian = ["wl-clipboard"]
+fedora = ["wl-clipboard"]
+arch = ["wl-clipboard"]
+
+[programe.xclip]
+comenzi = ["ocr-ecran (X11)"]
+debian = ["xclip"]
+fedora = ["xclip"]
+arch = ["xclip"]
+
+[programe.maim]
+comenzi = ["ocr-ecran (X11)"]
+debian = ["maim"]
+fedora = ["maim"]
+arch = ["maim"]
+
+[programe.gnome-screenshot]
+comenzi = ["ocr-ecran (GNOME)"]
+debian = ["gnome-screenshot"]
+fedora = ["gnome-screenshot"]
+arch = ["gnome-screenshot"]
+
+[programe.spectacle]
+comenzi = ["ocr-ecran (KDE)"]
+debian = ["kde-spectacle"]
+fedora = ["spectacle"]
+arch = ["spectacle"]
+
+[programe.notify-send]
+comenzi = ["notificări"]
+debian = ["libnotify-bin"]
+fedora = ["libnotify"]
+arch = ["libnotify"]
+
+[programe.git]
+comenzi = ["backup"]
+debian = ["git"]
+fedora = ["git"]
+arch = ["git"]
+
+[programe.java]
+comenzi = ["corecteaza (LanguageTool)"]
+debian = ["default-jre-headless"]
+fedora = ["java-21-openjdk-headless"]
+arch = ["jre-openjdk-headless"]
+
+[programe.podman]
+comenzi = ["servicii (opțional)"]
+debian = ["podman"]
+fedora = ["podman"]
+arch = ["podman"]
+
+[programe.venv]
+comenzi = ["install.sh"]
+debian = ["python3-venv"]
+fedora = []
+arch = []
