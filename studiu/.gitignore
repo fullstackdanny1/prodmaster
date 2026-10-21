@@ -1,0 +1,8 @@
+.venv/
+data/
+.env
+config.toml
+__pycache__/
+*.pyc
+.pytest_cache/
+exemplu/.studiu/

@@ -1,0 +1,68 @@
+# Configurația AI comună pentru Studiu și Unelte.
+# Instalatoarele o copiază în ~/.config/ai/ai.toml dacă nu există.
+# Cheile se pun în ~/.config/ai/.env, de exemplu:
+#   GEMINI_API_KEY=cheia-din-google-ai-studio
+#
+# Referințe la modele: "furnizor:model" (despărțit la primul ":") sau numele unui alias.
+
+# Modelul folosit când o sarcină nu are altă setare
+implicit = "gemini:gemini-3.8-flash"
+
+[aliasuri]                       # nume scurte, folosite mai jos și în interfețe
+rapid = "gemini:gemini-3.8-flash"
+bun   = "gemini:gemini-3.8-flash"
+# local = "ollama:<numele modelului din Ollama>"
+
+[sarcini]                        # o sarcină lipsă folosește `implicit`
+notite        = "bun"            # Studiu: notițe din PDF / transcrieri
+carduri       = "bun"            # Studiu
+chat          = "bun"            # Studiu
+cuvinte_cheie = "rapid"          # Studiu: pasul 1 din chat
+corectura_ocr = "rapid"          # Unelte: ocr-ecran --ai
+stil          = "bun"            # Unelte: corecteaza --stil
+traducere     = "bun"            # Unelte
+cv            = "bun"            # Unelte
+buget         = "rapid"          # Unelte: categorisire
+rezumat       = "rapid"          # Unelte: rezumatul zilnic
+
+[buget]
+lunar_usd = 0                    # 0 = fără limită; contează doar furnizorii cu preț
+
+[furnizori.gemini]
+tip = "openai"                   # adaptorul: openai | anthropic
+base_url = "https://generativelanguage.googleapis.com/v1beta/openai"
+cheie = "GEMINI_API_KEY"         # NUMELE variabilei din .env, nu cheia
+cereri_pe_minut = 0              # >0 dacă primești des erori 429
+timeout_s = 180
+schema_json = "auto"             # auto | da | nu
+context_max = 0                  # tokeni; 0 = necunoscut
+max_iesire = 8192
+pret_intrare_1m = 0.0            # USD / 1M tokeni (0 = gratuit)
+pret_iesire_1m = 0.0
+
+[furnizori.ollama]               # modele locale; la fel LM Studio, llama.cpp server
+tip = "openai"
+base_url = "http://127.0.0.1:11434/v1"
+cheie = ""                       # fără cheie
+timeout_s = 900                  # modelele locale sunt lente pe CPU
+context_max = 8192
+
+# [furnizori.groq]
+# tip = "openai"
+# base_url = "https://api.groq.com/openai/v1"
+# cheie = "GROQ_API_KEY"
+
+# [furnizori.openrouter]
+# tip = "openai"
+# base_url = "https://openrouter.ai/api/v1"
+# cheie = "OPENROUTER_API_KEY"
+
+# [furnizori.openai]
+# tip = "openai"
+# base_url = "https://api.openai.com/v1"
+# cheie = "OPENAI_API_KEY"
+
+# [furnizori.anthropic]
+# tip = "anthropic"
+# base_url = "https://api.anthropic.com/v1"
+# cheie = "ANTHROPIC_API_KEY"

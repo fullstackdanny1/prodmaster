@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studiu</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='3' width='22' height='26' rx='3' fill='%232F4BB3'/%3E%3Cpath d='M10 11h12M10 16h12M10 21h7' stroke='%23fff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="/static/style.css">
+<script defer src="/static/vendor/katex/katex.min.js"></script>
+<script type="module" src="/static/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <button class="icon-btn" id="menuBtn" aria-label="Arată materiile" aria-controls="sidebar">☰</button>
+  <a href="#/" class="brand">Studiu</a>
+  <nav class="tabs" aria-label="Secțiuni">
+    <a href="#/" data-tab="biblioteca">Bibliotecă</a>
+    <a href="#/import" data-tab="import">Import</a>
+    <a href="#/revizuit" data-tab="revizuit">De revizuit <span id="revCount" class="pill" hidden></span></a>
+    <a href="#/repetitie" data-tab="repetitie">Repetiție</a>
+    <a href="#/quiz" data-tab="quiz">Quiz</a>
+    <a href="#/examen" data-tab="examen">Examen</a>
+    <a href="#/chat" data-tab="chat">Chat</a>
+    <a href="#/setari" data-tab="setari" aria-label="Setări">Setări</a>
+  </nav>
+  <form id="searchForm" class="search" role="search">
+    <input id="q" type="search" placeholder="Caută în notițe" aria-label="Caută în notițe" autocomplete="off">
+    <kbd class="search-hint" aria-hidden="true">/</kbd>
+  </form>
+</header>
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="Materii">
+    <div class="sidebar-head">
+      <span>Materii</span>
+      <button id="newRoot" class="link-btn">+ Materie</button>
+    </div>
+    <nav id="tree" class="tree"></nav>
+  </aside>
+  <main id="main" class="main" tabindex="-1"></main>
+</div>
+<div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

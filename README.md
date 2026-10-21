@@ -60,3 +60,13 @@ go test ./...
 | `Space` | meniul de acțiuni |
 | `?` | ajutor |
 | `q`, `Ctrl+C` | ieșire |
+
+## Alte proiecte din acest repo
+
+| Folder | Ce este |
+|---|---|
+| [`studiu/`](studiu/) | aplicația web locală pentru pregătirea examenelor (notițe, carduri, quiz, examen, chat) |
+| [`unelte/`](unelte/) | suita de comenzi de terminal (backup, organizare, OCR, conversie, corectură, traducere, rezumat) |
+
+Cele două proiecte folosesc același strat AI (`studiu/app/ai/` = `unelte/unelte/ai/`) și aceeași
+configurație, `~/.config/ai/ai.toml`.

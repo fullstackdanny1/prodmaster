@@ -1,0 +1,3 @@
+# Transcriere locală (opțională, grea: descarcă și modelul la prima folosire).
+# Instalare: ./studiu.sh --instaleaza-transcriere
+faster-whisper==1.2.1

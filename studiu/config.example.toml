@@ -1,0 +1,41 @@
+# Configurația aplicației Studiu.
+# La prima pornire, lansatorul copiază acest fișier în config.toml.
+# Modifică doar config.toml. Un config.toml gol funcționează (valori implicite pentru tot).
+
+[notite]
+# Folderul cu notițe: un folder per materie/topic, cu subfoldere pe oricâte niveluri.
+# Poate fi o cale absolută ("~/Notite") sau relativă la folderul aplicației.
+# Implicit arată spre notițele de exemplu; schimbă-l în "~/Notite" când începi.
+cale = "exemplu"
+
+# Cache-ul (index de căutare, starea repetițiilor). Poate fi șters oricând: se reconstruiește.
+date = "data"
+
+[server]
+host = "127.0.0.1"
+port = 8765
+
+[ai]
+# Furnizorii, modelele și ce model folosește fiecare sarcină se configurează
+# în fișierul comun ~/.config/ai/ai.toml. Aici nu e nevoie de nimic.
+
+[import]
+pastreaza_sursele = true    # copiază fișierul original în .studiu/surse/
+versioneaza_sursele = false # false = sursele binare sunt puse în .studiu/.gitignore
+caractere_per_bucata = 12000
+ocr = true                  # folosește ocrmypdf pentru PDF-uri scanate, dacă e instalat
+
+[transcriere]
+mod = "local"               # local | api | dezactivat. Gemini nu transcrie prin API.
+model_local = "small"       # tiny | base | small | medium
+limba = "ro"
+model_api = "openai:whisper-1"  # pentru mod = "api": furnizor de tip openai cu /audio/transcriptions
+
+[carduri]
+per_sectiune_min = 2
+per_sectiune_max = 6
+variante_quiz = 4
+
+[repetitie]
+carduri_noi_pe_zi = 20
+retentie_dorita = 0.9

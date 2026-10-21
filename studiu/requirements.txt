@@ -1,0 +1,10 @@
+# Dependențele de bază, cu versiuni exacte. O dependență nouă trebuie justificată (README, „Dependențe”).
+fastapi==0.142.2
+uvicorn==0.54.0
+python-multipart==0.0.32
+markdown-it-py==4.2.0
+mdit-py-plugins==0.6.1
+PyYAML==6.0.3
+pymupdf==1.28.2
+trafilatura==2.3.1
+fsrs==6.3.2

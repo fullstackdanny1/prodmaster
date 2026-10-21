@@ -1,0 +1,31 @@
+# Programe → pachete pe distribuții. Datele stau aici, nu în cod: dacă un pachet se
+# redenumește, se corectează doar acest fișier. Verificat pe Ubuntu 24.04 LTS, Fedora 42, Arch.
+
+[manageri]
+debian = "sudo apt install"
+fedora = "sudo dnf install"
+arch = "sudo pacman -S --needed"
+
+[programe.ffmpeg]
+rol = "import audio și video"
+debian = ["ffmpeg"]
+fedora = ["ffmpeg-free"]
+arch = ["ffmpeg"]
+
+[programe.ocrmypdf]
+rol = "OCR pentru PDF-uri scanate"
+debian = ["ocrmypdf"]
+fedora = ["ocrmypdf"]
+arch = ["ocrmypdf"]
+
+[programe.tesseract]
+rol = "OCR (limba română)"
+debian = ["tesseract-ocr", "tesseract-ocr-ron"]
+fedora = ["tesseract", "tesseract-langpack-ron"]
+arch = ["tesseract", "tesseract-data-ron"]
+
+[programe.venv]
+rol = "mediul virtual Python"
+debian = ["python3-venv"]
+fedora = []
+arch = []
